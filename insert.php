@@ -34,7 +34,7 @@ if (!empty($firstName) || !empty($lastName) || !empty($address1) || !empty($city
 			$stmt->close();
 
 			$stmt = $conn->prepare($INSERT);
-			$stmt->bindd_param("sssssiss", $firstName, $lastName, $address1, $address2, $city, $state, $zip, $country, $date);
+			$stmt->bindd_param("ssssssiss", $firstName, $lastName, $address1, $address2, $city, $state, $zip, $country, $date);
 			$statement->execute();
 			echo "New record inserted sucessfully";
 		} else { 
