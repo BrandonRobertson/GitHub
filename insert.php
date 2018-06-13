@@ -7,7 +7,6 @@ $city = $_POST['city']
 $state = $_POST['state']
 $zip = $_POST['zip']
 $country = $_POST['country']
-$date = $_POST[getdate()]
 
 if (!empty($firstName) || !empty($lastName) || !empty($address1) || !empty($city) || !empty($state) || !empty($zip) || !empty($country)){
 	$host = "localhost";
@@ -18,13 +17,12 @@ if (!empty($firstName) || !empty($lastName) || !empty($address1) || !empty($city
 	$conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
 
 	if (mysqli_connect_error()) {
-		die('Connect Error('mysqli_connect_errno()')'mysqli_connect_error())
+		die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error())
 	} else {
-		$SELECT = "SELECT date From register Where date = ? Limit 1";
-		$INSERT = "INSERT Into register (firstName, lastName, address1, address2, city, state, zip, country, date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		$INSERT = "INSERT Into register (firstName, lastName, address1, address2, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, )";
 
 		$stmt = $conn->prepare($SELECT);
-		$stmt->bind_param("s", $date);
+		$stmt->bind_param("s", $firstName);
 		$stmt->execute();
 		$stmt->bind_result($dot);
 		$stmt->store_result();
@@ -34,7 +32,7 @@ if (!empty($firstName) || !empty($lastName) || !empty($address1) || !empty($city
 			$stmt->close();
 
 			$stmt = $conn->prepare($INSERT);
-			$stmt->bindd_param("ssssssiss", $firstName, $lastName, $address1, $address2, $city, $state, $zip, $country, $date);
+			$stmt->bindd_param("ssssssiss", $firstName, $lastName, $address1, $address2, $city, $state, $zip, $country);
 			$statement->execute();
 			echo "New record inserted sucessfully";
 		} else { 
