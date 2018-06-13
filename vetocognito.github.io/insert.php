@@ -19,7 +19,7 @@ if (!empty($firstName) || !empty($lastName) || !empty($address1) || !empty($city
 	if (mysqli_connect_error()) {
 		die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error())
 	} else {
-		$INSERT = "INSERT Into register (firstName, lastName, address1, address2, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?, )";
+		$INSERT = "INSERT Into register (firstName, lastName, address1, address2, city, state, zip, country) values(?, ?, ?, ?, ?, ?, ?, ?)"; }
 
 		$stmt = $conn->prepare($SELECT);
 		$stmt->bind_param("s", $firstName);
@@ -30,7 +30,6 @@ if (!empty($firstName) || !empty($lastName) || !empty($address1) || !empty($city
 
 		if($rnum==0) {
 			$stmt->close();
-
 			$stmt = $conn->prepare($INSERT);
 			$stmt->bindd_param("ssssssiss", $firstName, $lastName, $address1, $address2, $city, $state, $zip, $country);
 			$statement->execute();
