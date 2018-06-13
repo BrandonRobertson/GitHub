@@ -18,7 +18,7 @@ if (!empty($firstName) || !empty($lastName) || !empty($address1) || !empty($city
 	$conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
 
 	if (mysqli_connect_error()) {
-		die('Connect Error('. mysqli_connect_errno().')'. mysqli_connect_error())
+		die('Connect Error('mysqli_connect_errno()')'mysqli_connect_error())
 	} else {
 		$SELECT = "SELECT date From register Where date = ? Limit 1";
 		$INSERT = "INSERT Into register (firstName, lastName, address1, address2, city, state, zip, country, date) values(?, ?, ?, ?, ?, ?, ?, ?, ?)";
