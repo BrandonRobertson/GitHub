@@ -1,6 +1,6 @@
 <?php
 	include_once 'dbh.inc.php';
-	
+
 	$firstName = $_POST['firstName'];
 	$lastName = $_POST['lastName'];
 	$address1 = $_POST['address1'];
@@ -9,9 +9,8 @@
 	$state = $_POST['state'];
 	$zip = $_POST['zip'];
 	$country = $_POST['country'];
-	$date = $_POST[getdate()];
 
-	$sql = "INSERT INTO register (firstName, lastName, address1, address2, city, state, zip, country, date) VALUES ('$firstName', '$lastName', '$address1', '$address2', '$city', '$state', '$zip', '$country', '$date')";
+	$sql = "INSERT INTO register (firstName, lastName, address1, address2, city, state, zip, country, date) VALUES ('$firstName', '$lastName', '$address1', '$address2', '$city', '$state', '$zip', '$country', NOW())";
 		mysqli_query($conn, $sql);
 
 		header("Location: success.html");

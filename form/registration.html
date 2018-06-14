@@ -2,29 +2,51 @@
 <html>
 <head>
 	<title>Registration Form</title>
+
+	<script>
+		function lettersOnly(input) {
+			var regex = /[^a-z ]/gi;
+			input.value = input.value.replace(regex, "");
+		}
+
+		function numbersOnly(input) {
+			var regex = /[^0-9]/g;
+			input.value = input.value.replace(regex, "");
+		}
+		function validateZip () {
+			var zipval = document.forma.zip.value;
+			alert(zipval);
+			if(zipval.length == 5 || zipval.length == 9) {
+				alert(Accept string);
+			} else {
+				alert("Zipcode length should be 5 or 9 digits");
+				die("error!");
+			}
+		}
+	</script>
 </head>
 <body>
-	<form action="insert.php" method="POST">
+	<form name="forma" action="insert.php" method="POST">
 		<table>
 			<tr>
 				<td>First Name:</td>
-				<td><input type="fName" placeholder="First Name" name="firstName" required></td>
+				<td><input type="firstName" placeholder="First Name" name="firstName" maxlength="20" onkeyup="lettersOnly(this)" required></td>
 			</tr>
 			<tr>
 				<td>Last Name:</td>
-				<td><input type="lName"placeholder="Last Name" name="lastName" required></td>
+				<td><input type="lastName"placeholder="Last Name" name="lastName" maxlength="20" onkeyup="lettersOnly(this)" required></td>
 			</tr>
 			<tr>
 				<td>Address1:</td>
-				<td><input type="address1"placeholder="Address1" name="address1" required></td>
+				<td><input type="address1"placeholder="Address1" name="address1" maxlength="200" required></td>
 			</tr>
 			<tr>
 				<td>Address2:</td>
-				<td><input type="address2"placeholder="Address2" name="address2"></td>
+				<td><input type="address2"placeholder="Address2" name="address2" maxlength="200"></td>
 			</tr>
 			<tr>
 				<td>City:</td>
-				<td><input type="city"placeholder="City" name="city" required></td>
+				<td><input type="city"placeholder="City" name="city" maxlength="50" onkeyup="lettersOnly(this)" required></td>
 			</tr>
 			<tr>
 				<td>State:</td>
@@ -95,15 +117,19 @@
 			</tr>
 			<tr>
 				<td>Zip:</td>
-				<td><input type="zip"placeholder="Zip" name="zip" required></td>
+				<td><input type="zip" placeholder="Zip" name="zip"  maxlength="9" onkeyup="numbersOnly(this)" required></td>
 			</tr>
 			<tr>
 				<td>Country:</td>
-				<td><input type="country"placeholder="Country" name="country" required></td>
+				<td>
+					<select name="country" required>
+						<option value="US">US</option>
+					</select>
+				</td>
 			</tr>
 			<tr>
 				<td>
-					<input type="Submit" value="Submit" name="Submit">
+					<button name="submit" onclick="validateZip();" value="submit">Submit</button>
 				</td>
 			</tr>
 		</table>

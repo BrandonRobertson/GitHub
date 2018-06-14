@@ -5,9 +5,9 @@ CREATE TABLE users (
 	address2 varchar(200),
 	city varchar(50) not null,
 	state varchar (2) not null,
-	zip int(9) not null,
-	country varchar(20) not null,
-	date timestamp
+	zip varchar(9) not null,
+	country varchar(2) not null,
+	DateTime timestamp
 );
 
 INSERT INTO register (firstName, lastName, address1, address2, city, state, zip, country, date) VALUES ()
