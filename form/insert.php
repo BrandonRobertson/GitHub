@@ -14,5 +14,4 @@
 		mysqli_query($conn, $sql);
 
 		header("Location: success.html");
-
 ?>

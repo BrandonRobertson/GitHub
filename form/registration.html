@@ -15,12 +15,11 @@
 		}
 		function validateZip () {
 			var zipval = document.forma.zip.value;
-			alert(zipval);
 			if(zipval.length == 5 || zipval.length == 9) {
-				alert(Accept string);
+				return true;
 			} else {
 				alert("Zipcode length should be 5 or 9 digits");
-				die("error!");
+				return false;
 			}
 		}
 	</script>
@@ -129,7 +128,7 @@
 			</tr>
 			<tr>
 				<td>
-					<button name="submit" onclick="validateZip();" value="submit">Submit</button>
+					<button name="submit" onclick="validateZip();">Submit</button>
 				</td>
 			</tr>
 		</table>
