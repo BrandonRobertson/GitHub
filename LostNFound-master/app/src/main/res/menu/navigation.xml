@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_home"
+        android:icon="@drawable/ic_home_black_24dp"
+        android:title="@string/nav_home" />
+
+    <item
+        android:id="@+id/navigation_listings"
+        android:icon="@mipmap/list_icon"
+        android:title="@string/nav_listings" />
+
+    <item
+        android:id="@+id/navigation_animals"
+        android:icon="@mipmap/corgi_sit"
+        android:title="@string/nav_animals" />
+
+    <!--<item-->
+        <!--android:id="@+id/navigation_map"-->
+        <!--android:icon="@drawable/ic_home_black_24dp"-->
+        <!--android:title="@string/nav_map" />-->
+
+</menu>
