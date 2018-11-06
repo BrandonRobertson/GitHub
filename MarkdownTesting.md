@@ -39,13 +39,17 @@ __3) Join tables__
 AddJoin_management (in_layer_or_view, in_field, join_table, join_field, {join_type})
 ```
 Routes:  
-Roads - [ROUTES and MRL] + [ROUTE_ID]  
-Parking - [PKG] + [ROUTE_ID]  
-Roads (Polygons) - [MRP] + [ROUTE_ID]  
+```
+Roads == ([ROUTES] JOIN [MRL]) JOIN [ROUTE_ID]
+Parking == [PKG] LEFT JOIN [ROUTE_ID]  
+Roads (Polygons) == [MRP] LEFT JOIN [ROUTE_ID]  
+```
 Route Conditions:  
-Road Conditions - [ROUTES and MRL] + [PMS_20/PMS_MRL]  
-Parking Conditions - [PKG] + [PMS_PARKING]  
-Roads Conditions (Polygons) - [MRP] + [PMS_MRP]  
+```
+Road Conditions == ([ROUTES] JOIN [MRL]) JOIN ([PMS_20] RIGHT JOIN [PMS_MRL])  
+Parking Conditions == [PKG] LEFT JOIN [PMS_PARKING]  
+Roads Conditions (Polygons) == [MRP] LEFT JOIN [PMS_MRP]  
+```
 ___
 __4) Rename if necessary__
 ```
