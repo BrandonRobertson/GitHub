@@ -1,12 +1,13 @@
 Steps to remake RIP data
 ========================
 
-__1) Filter the database with user input PARK_ALHPA compared against objects ROUTE_IDENT.__ 
+__1. Filter the database with user input PARK_ALHPA compared against objects ROUTE_IDENT__
+
 ```
 MakeQueryTable_management (in_table, out_table, in_key_field_option, {in_key_field}, {in_field}, {where_clause})
 ```
 ___
-__2) Pull only necessary columns from the tables that are required: MRL, MRP, PKG, PMS_20, PMS_MRL, PMS_MRP, PMS_PKG, ROUTE_ID, & ROUTES__
+__2. Pull only necessary columns from the tables that are required: MRL, MRP, PKG, PMS_20, PMS_MRL, PMS_MRP, PMS_PKG, ROUTE_ID, & ROUTES__
 
 | MRL | MRP | PKG | PMS_20 | PMS_MRL | PMS_MRP | PMS_PKG | ROUTE_ID | ROUTES | 
 | --- | --- | --- | ------ | ------- | ------- | ------- | -------- | ------ |
@@ -34,7 +35,8 @@ __2) Pull only necessary columns from the tables that are required: MRL, MRP, PK
 AddField_management (in_table, field_name, field_type, {field_precision}, {field_scale}, {field_length}, {field_alias}, {field_is_nullable}, {field_is_required}, {field_domain})
 ```
 ___
-__3) Join tables__	
+__3. Join tables__
+
 ```
 AddJoin_management (in_layer_or_view, in_field, join_table, join_field, {join_type})
 ```
@@ -51,12 +53,14 @@ Parking Conditions == [PKG] LEFT JOIN [PMS_PARKING]
 Roads Conditions (Polygons) == [MRP] LEFT JOIN [PMS_MRP]  
 ```
 ___
-__4) Rename if necessary__
+__4. Rename if necessary__
+
 ```
 AlterField_management (in_table, field, {new_field_name}, {new_field_alias}, {field_type}, {field_length}, {field_is_nullable}, {clear_field_alias})
 ```
 ___
-__5) Copy to gdb__
+__5. Copy to gdb__
+
 ```
 Copy_management (in_data, out_data, {data_type}, {associated_data})
 ```
